@@ -1,7 +1,7 @@
 import torch
 import csv
 import torch.nn as nn
-
+import sys
 class block(nn.Module):
     def __init__(self, in_channels, out_channels, depth=3, expansion=0):
         super(block,self).__init__()
@@ -57,7 +57,7 @@ model=model_aicure(block_config)
 modelpth=torch.load("model.pth")
 model.load_state_dict(modelpth['model'])
 
-infile="sample_test_data.csv"
+infile=sys.argv[1]
 # outfile="sample_output_generated.csv"
 inf=open(infile,"r")
 # outf=open(outfile,"r")
